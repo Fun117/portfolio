@@ -45,14 +45,14 @@ function ClientZennFormatUpdateTime( updateTime: string ) {
     }
 }
 
-export function ClientZennGetElements_articles({}: {}) {
+export function ClientZennGetElements_articles({ count }: { count?: number }) {
 
     const [zenn_articles, setZenn_articles] = useState<ZennAPIGetArticleObj | undefined>(undefined)
 
     useEffect(() => {
         try {
             const async = async () => {
-                const res = await ServerZennGET_articles(ZennConfigGET(`username`));
+                const res = await ServerZennGET_articles(ZennConfigGET(`username`),count);
                 setZenn_articles(res.articles);
             };
             async();
@@ -63,28 +63,26 @@ export function ClientZennGetElements_articles({}: {}) {
 
     function ContentPulse() {
         return (
-            <>
-                <article className="snap-start animate-fade-up transition-all duration-500 ease-in-out">
-                    <div className="relative flex flex-col overflow-hidden rounded-[15px] shadow-sm hover:drop-shadow-lg hover:scale-[102%] active:shadow-sm active:drop-shadow-none active:scale-[98%] active:opacity-50 transition-all duration-300 ease-in-out bg-neutral-50 border-neutral-300/30 border">
-                        <span className="flex flex-col">
-                            <div className="flex justify-center py-[25px] bg-blue-300/50 animate-pulse">
-                                <span className="ml-[0.05px] bg-neutral-200 rounded-full w-[69px] h-[69px]"/>
-                            </div>  
-                            <div className="flex pt-3 animate-pulse">
-                                <h1 className="px-3 max-h-[4.55em] bg-neutral-200 rounded-lg w-[90%] h-5 ml-2"/>
-                            </div>
-                            <div className="px-[14px] pt-[10px] pb-[16px] text-[11px]">
-                                <div className="animate-pulse">
-                                    <div className="flex items-center text-neutral-500">
-                                        <span className="bg-neutral-200 rounded-lg w-[120px] h-5"/>
-                                        <span className="inline-flex items-center ml-[6px] bg-neutral-200 rounded-lg w-[80px] h-5"/>
-                                    </div>
+            <article className="snap-start animate-fade-up transition-all duration-500 ease-in-out">
+                <div className="relative flex flex-col overflow-hidden rounded-[15px] shadow-sm hover:drop-shadow-lg hover:scale-[102%] active:shadow-sm active:drop-shadow-none active:scale-[98%] active:opacity-50 transition-all duration-300 ease-in-out bg-neutral-50 border-neutral-300/30 border">
+                    <span className="flex flex-col">
+                        <div className="flex justify-center py-[25px] bg-blue-300/50 animate-pulse">
+                            <span className="ml-[0.05px] bg-neutral-200 rounded-full w-[69px] h-[69px]"/>
+                        </div>  
+                        <div className="flex pt-3 animate-pulse">
+                            <h1 className="px-3 max-h-[4.55em] bg-neutral-200 rounded-lg w-[90%] h-5 ml-2"/>
+                        </div>
+                        <div className="px-[14px] pt-[10px] pb-[16px] text-[11px]">
+                            <div className="animate-pulse">
+                                <div className="flex items-center text-neutral-500">
+                                    <span className="bg-neutral-200 rounded-lg w-[120px] h-5"/>
+                                    <span className="inline-flex items-center ml-[6px] bg-neutral-200 rounded-lg w-[80px] h-5"/>
                                 </div>
                             </div>
-                        </span>
-                    </div>
-                </article>
-            </>
+                        </div>
+                    </span>
+                </div>
+            </article>
         )
     }
 
@@ -137,7 +135,7 @@ export function ClientZennGetElements_articles({}: {}) {
                                         <div className="flex pt-3">
                                             <h1 className="px-3 text-base font-bold max-h-[4.55em] overflow-hidden truncate">{content.title}</h1>
                                         </div>
-                                        {!content.publication?<>
+                                        {!content.publication &&
                                         <div className="px-[14px] pt-[10px] pb-[16px] text-[11px]">
                                             <div className="">
                                                 <div className="flex items-center text-neutral-500">
@@ -145,10 +143,9 @@ export function ClientZennGetElements_articles({}: {}) {
                                                     <span className="inline-flex items-center ml-[6px]"><Heart className="w-[13px] h-[13px] mr-[1px]"/>{content.liked_count}</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        </>:<></>}
+                                        </div>}
                                     </Link>
-                                    {content.publication?<>
+                                    {content.publication &&
                                     <div className="px-[14px] pt-[10px] pb-[16px] text-[11px]">
                                         <Link className="flex items-center text-[11px] text-neutral-600" href={`https://zenn.dev/p/${content.publication?.name}`} target="_block">
                                             <Avatar className="text-[11px] border w-6 h-6 overflow-hidden rounded-lg">
@@ -168,8 +165,7 @@ export function ClientZennGetElements_articles({}: {}) {
                                                 </div>
                                             </div>
                                         </Link>
-                                    </div>
-                                    </>:<></>}
+                                    </div>}
                                 </div>
                             </article>
                         </ContentMenu>

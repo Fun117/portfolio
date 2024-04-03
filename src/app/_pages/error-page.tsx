@@ -6,7 +6,7 @@ import Link from "next/link";
 import Header from "@/components/client/header";
 import Footer from "@/components/client/footer";
 import { LanguageSkill, LanguageSkillGroup } from "@/components/client/skil";
-import { ZeneGETArticlesGroup } from "@/components/zenn/src/main";
+import { ZeneGETArticlesGroup } from "@/components/zenn/main";
 import { Loading, NetworkOffline } from "@/components/client/status";
 import { ContentTooltip } from "@/components/client/main";
 import { FaGithub, FaTwitter } from "react-icons/fa";

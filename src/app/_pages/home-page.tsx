@@ -6,7 +6,7 @@ import Link from "next/link";
 import Header from "@/components/client/header";
 import Footer from "@/components/client/footer";
 import { LanguageSkill, LanguageSkillGroup } from "@/components/client/skil";
-import { ZeneGETArticlesGroup } from "@/components/zenn/src/main";
+import { ZeneGETArticlesGroup } from "@/components/zenn/main";
 import { Loading, NetworkOffline } from "@/components/client/status";
 import { ContentTooltip } from "@/components/client/main";
 import { FaGithub, FaTwitter } from "react-icons/fa";
@@ -15,6 +15,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { NavigationConfig } from "@/components/_config";
 
 import { BsArrowDownCircle } from "react-icons/bs";
+import { GitHubGetRepositoryGroup } from "@/components/github/main";
 
 const navigationConfig: NavigationConfig = require(`/src/components/_config`).navigationConfig;
 
@@ -114,7 +115,7 @@ export default function PageClient_Home() {
 function Page() {
 	return (
 		<>
-		<div className="flex flex-col pt-10">
+		<div className="flex flex-col pt-10 bg-slate-100">
 			<div className="flex flex-col py-5">
 				<div className="flex flex-col justify-center items-center mb-5 px-5 select-none pointer-events-none">
 					<div className="relative flex items-center overflow-hidden rounded-lg border w-full min-w-44 max-w-xl h-20 bg-neutral-200/50 border-neutral-300/30">
@@ -149,9 +150,12 @@ function Page() {
 					<LanguageSkill language="Mysql" point={20}/>
 					<LanguageSkill language="Java" point={30}/>
 				</LanguageSkillGroup>
+			</div>		
+			<div className="flex flex-col py-10 border-y-2 bg-sky-100/80 border-white/30">
+				<GitHubGetRepositoryGroup moreBtn repositoryCount={6}/>
 			</div>
-			<div className="flex flex-col bg-slate-100 py-10">
-				<ZeneGETArticlesGroup/>
+			<div className="flex flex-col py-10">
+				<ZeneGETArticlesGroup moreBtn count={6}/>
 			</div>
 		</div>
 		</>
