@@ -16,6 +16,7 @@ import { NavigationConfig } from "@/components/_config";
 
 import { BsArrowDownCircle } from "react-icons/bs";
 import { GitHubGetRepositoryGroup } from "@/components/github/main";
+import { _locales } from "@/components/client/_locales";
 
 const navigationConfig: NavigationConfig = require(`/src/components/_config`).navigationConfig;
 
@@ -62,7 +63,7 @@ export default function PageClient_Portfolio() {
 						<div className='flex justify-center items-center w-full px-2'>
 							<div className="relative flex items-center rounded-lg border w-full min-w-44 max-w-xl h-full bg-neutral-200/20 border-neutral-300/30 backdrop-blur backdrop-brightness-50 shadow-lg">
 								<div className="flex flex-col gap-2 w-full px-5 py-10 text-center text-neutral-50">
-									<h1 className="font-semibold text-2xl">Portfolio</h1>
+									<h1 className="font-semibold text-2xl">{_locales(`ポートフォリオ`)}</h1>
 								</div>
 							</div>
 						</div>
@@ -80,24 +81,6 @@ function Page() {
 	return (
 		<>
 		<div className="flex flex-col pt-10 bg-slate-100">
-			<div className="flex flex-col py-5">
-				<div className="flex flex-col justify-center items-center mb-5 px-5 select-none pointer-events-none">
-					<div className="relative flex items-center overflow-hidden rounded-lg border w-full min-w-44 max-w-xl h-20 bg-neutral-200/50 border-neutral-300/30">
-						<Image
-						src={`/icons/fun117/fun117_1080x1080.webp`}
-						alt="Fun117 Icon"
-						width={100}
-						height={100}
-						priority
-						className="absolute left-[-15px] rounded-full"
-						/>
-						<div className="pl-24 md:pl-28 pr-2">
-							<h1 className="font-semibold">Fun117</h1>
-							<p className="text-sm opacity-70">ポートフォリオとプロフィール</p>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div className="flex flex-col py-10 border-y-2 bg-sky-100/80 border-white/30">
 				<GitHubGetRepositoryGroup/>
 			</div>

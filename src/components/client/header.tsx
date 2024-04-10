@@ -31,6 +31,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import { AlignJustify } from "lucide-react";
+import { _locales } from "./_locales";
 
 
 const navigationConfig: NavigationConfig = require(`/src/components/_config`).navigationConfig;
@@ -53,7 +54,7 @@ interface _SheetContents_config {
     description?: string | null;
 }
 const SheetContents_config: _SheetContents_config = {
-    "title": "プロフィール & ポートフォリオ",
+    "title": _locales(`ポートフォリオとプロフィール`),
 }
 
 export default function Header({ topImageHtml, isScrolledCss, topImageSetCss, topImageLabel }: { topImageHtml?: React.ReactNode | null, isScrolledCss?: boolean, topImageSetCss?: string | null, topImageLabel?: string | null }) {
@@ -125,7 +126,7 @@ function SheetContents() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <button aria-label="メニュー" className={`flex justify-center items-center w-11 h-11 p-2 border rounded-lg bg-neutral-200/20 border-neutral-300/30 hover:bg-neutral-200/60 hover:shadow-md active:opacity-70 active:scale-[98%] transition-all duration-300 ease-in-out`}><AlignJustify className="font-bold text-lg"/></button>
+                <button aria-label={_locales(`メニュー`)} className={`flex justify-center items-center w-11 h-11 p-2 border rounded-lg bg-neutral-200/20 border-neutral-300/30 hover:bg-neutral-200/60 hover:shadow-md active:opacity-70 active:scale-[98%] transition-all duration-300 ease-in-out`}><AlignJustify className="font-bold text-lg"/></button>
             </SheetTrigger>
             <SheetContent className="px-0">
                 <SheetHeader className="px-6">
@@ -151,7 +152,7 @@ function SheetContents() {
                 </div>
                 <SheetFooter className="px-6">
                     <SheetClose asChild>
-                        <Button>閉じる</Button>
+                        <Button>{_locales(`閉じる`)}</Button>
                     </SheetClose>
                 </SheetFooter>
             </SheetContent>

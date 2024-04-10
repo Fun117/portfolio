@@ -16,6 +16,7 @@ import { NavigationConfig } from "@/components/_config";
 
 import { BsArrowDownCircle } from "react-icons/bs";
 import { GitHubGetRepositoryGroup } from "@/components/github/main";
+import { _locales } from "@/components/client/_locales";
 
 const navigationConfig: NavigationConfig = require(`/src/components/_config`).navigationConfig;
 
@@ -72,7 +73,7 @@ export default function PageClient_Home() {
 								<div className="flex flex-col gap-2 w-full px-5 pt-10 pb-5 text-center text-neutral-50">
 									<div>
 										<h1 className="font-semibold text-2xl">Fun117</h1>
-										<p className="text-sm opacity-70">A passionate Programmer from Japan</p>
+										<p className="text-sm opacity-70">{_locales(`日本在住の情熱的なプログラマー`)}</p>
 									</div>
 									<div className="flex justify-center items-center gap-2">
 										<ContentTooltip label="GitHub">
@@ -129,7 +130,7 @@ function Page() {
 						/>
 						<div className="pl-24 md:pl-28 pr-2">
 							<h1 className="font-semibold">Fun117</h1>
-							<p className="text-sm opacity-70">ポートフォリオとプロフィール</p>
+							<p className="text-sm opacity-70">{_locales(`ポートフォリオとプロフィール`)}</p>
 						</div>
 					</div>
 				</div>

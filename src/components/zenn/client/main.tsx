@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/context-menu"
 import { EncodeString } from "@/components/main";
 import { ContentMenu } from "@/components/client/main";
+import { _locales } from "@/components/client/_locales";
 
 function ClientZennFormatUpdateTime( updateTime: string ) {
     const currentDate = new Date();
@@ -22,23 +23,23 @@ function ClientZennFormatUpdateTime( updateTime: string ) {
     if (diffInHours < 1) {
         const diffInMinutes = Math.floor(timeDiff / (1000 * 60));
         if (diffInMinutes < 1) {
-            return 'たった今';
+            return _locales(`たった今`);
         } else {
-            return `${diffInMinutes}分前`;
+            return `${diffInMinutes}${_locales(`分前`)}`;
         }
     } else if (diffInDays < 1) {
         if (diffInHours === 1) {
-            return '1時間前';
+            return _locales(`1時間前`);
         } else {
-            return `${diffInHours}時間前`;
+            return `${diffInHours}${_locales(`時間前`)}`;
         }
     } else if (diffInDays === 1) {
-        return '昨日';
+        return _locales(`昨日`);
     } else if (diffInDays < 30) {
-        return `${diffInDays}日前`;
+        return `${diffInDays}${_locales(`日前`)}`;
     } else if (diffInDays < 270) {
         const diffInMonths = Math.floor(diffInDays / 30);
-        return `${diffInMonths}ヶ月前`;
+        return `${diffInMonths}${_locales(`ヶ月前`)}`;
     } else {
         const formattedDate = lastUpdateTime.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' });
         return formattedDate.replace(/\//g, '/');
@@ -63,8 +64,8 @@ export function ClientZennGetElements_articles({ count }: { count?: number }) {
 
     function ContentPulse() {
         return (
-            <article className="snap-start animate-fade-up transition-all duration-500 ease-in-out">
-                <div className="relative flex flex-col overflow-hidden rounded-[15px] shadow-sm hover:drop-shadow-lg hover:scale-[102%] active:shadow-sm active:drop-shadow-none active:scale-[98%] active:opacity-50 transition-all duration-300 ease-in-out bg-neutral-50 border-neutral-300/30 border">
+            <article className="w-full h-full snap-start animate-fade-up transition-all duration-500 ease-in-out">
+                <div className="relative flex flex-col w-full h-full overflow-hidden rounded-[15px] shadow-sm hover:drop-shadow-lg hover:scale-[102%] active:shadow-sm active:drop-shadow-none active:scale-[98%] active:opacity-50 transition-all duration-300 ease-in-out bg-neutral-50 border-neutral-300/30 border">
                     <span className="flex flex-col">
                         <div className="flex justify-center py-[25px] bg-blue-300/50 animate-pulse">
                             <span className="ml-[0.05px] bg-neutral-200 rounded-full w-[69px] h-[69px]"/>
@@ -109,22 +110,22 @@ export function ClientZennGetElements_articles({ count }: { count?: number }) {
                         <ContentMenu key={index} MenuContent={<> 
                             <ContextMenuItem>
                                 <Link href={`https://twitter.com/intent/tweet?url=https://zenn.dev${content.path}&text=${EncodeString(`${content.title} | ${content.user.name}`)}&hashtags=zenn`} target="_block">
-                                    X(Twitter)にポスト
+                                    {_locales(`X(Twitter)に投稿する`)}
                                 </Link>
                             </ContextMenuItem>
                             <ContextMenuItem>
                                 <Link href={`http://www.facebook.com/sharer.php?u=https://zenn.dev${content.path}`} target="_block">
-                                    Facebookに投稿
+                                    {_locales(`Facebookに投稿する`)}
                                 </Link>
                             </ContextMenuItem>
                             <ContextMenuItem>
                                 <Link href={`https://b.hatena.ne.jp/add?mode=confirm&url=https://zenn.dev${content.path}&title=${EncodeString(`${content.title} | ${content.user.name}`)}`} target="_block">
-                                    はてなブックマークに登録
+                                    {_locales(`はてなブックマークに登録`)}
                                 </Link>
                             </ContextMenuItem>
                         </>}>
-                            <article className="snap-start animate-fade-up transition-all duration-500 ease-in-out">
-                                <div className="relative flex flex-col overflow-hidden rounded-[15px] shadow-sm hover:drop-shadow-lg hover:scale-[102%] active:shadow-sm active:drop-shadow-none active:scale-[98%] active:opacity-50 transition-all duration-300 ease-in-out bg-neutral-50 border-neutral-300/30 border">
+                            <article className="w-full h-full snap-start animate-fade-up transition-all duration-500 ease-in-out">
+                                <div className="relative flex flex-col w-full h-full overflow-hidden rounded-[15px] shadow-sm hover:drop-shadow-lg hover:scale-[102%] active:shadow-sm active:drop-shadow-none active:scale-[98%] active:opacity-50 transition-all duration-300 ease-in-out bg-neutral-50 border-neutral-300/30 border">
                                     <Link className="absolute top-[12px] left-[12px] py-[3px] px-[6px] text-[10px] font-semibold text-white text-center uppercase bg-sky-500 rounded-full" href={`https://zenn.dev/tech-or-idea`} target="_block">
                                     {content.article_type}
                                     </Link>
@@ -155,9 +156,8 @@ export function ClientZennGetElements_articles({ count }: { count?: number }) {
                                             <div className="ml-[7px]">
                                                 <div className="flex mb-[2px]">
                                                     <div className="overflow-hidden truncate whitespace-normal">
-                                                        {content.publication.display_name}
+                                                    {_locales("に投稿", content.publication.display_name)}
                                                     </div>
-                                                    <div>に投稿</div>
                                                 </div>
                                                 <div className="flex items-center text-neutral-500">
                                                     <time dateTime={content.body_updated_at}>{ClientZennFormatUpdateTime(content.body_updated_at)}</time>

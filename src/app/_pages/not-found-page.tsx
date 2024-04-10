@@ -15,6 +15,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { NavigationConfig } from "@/components/_config";
 
 import { BsArrowDownCircle } from "react-icons/bs";
+import { _locales } from "@/components/client/_locales";
 
 const navigationConfig: NavigationConfig = require(`/src/components/_config`).navigationConfig;
 
@@ -71,7 +72,7 @@ export default function PageClient_NotFound() {
 								<div className="flex flex-col gap-2 w-full px-5 pt-10 pb-5 text-center text-neutral-50">
 									<div>
 										<h1 className="font-semibold text-2xl">404</h1>
-										<p className="text-sm opacity-70">Page not found</p>
+										<p className="text-sm opacity-70">{_locales(`ページが存在しません！`)}</p>
 									</div>
 								</div>
 							</div>

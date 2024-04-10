@@ -6,6 +6,7 @@ import Footer from "@/components/client/footer";
 import { Loading, NetworkOffline } from '@/components/client/status';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { _locales } from '@/components/client/_locales';
 
 const config: links_config = require(`/src/app/links/links.config.ts`).default;
 
@@ -62,7 +63,7 @@ export default function PageClient_Links({ id }: { id: string }) {
 							<div className="flex flex-col gap-2 w-full px-5 py-5 text-center text-neutral-50">
 								<div>
 									<h1 className="font-semibold text-2xl">Fun117&apos;s Portfolio & Profile</h1>
-									<p className="text-sm opacity-70">URLが無効です！既に廃止または変更された可能性があります。</p>
+									<p className="text-sm opacity-70">{_locales(`URLは無効です！すでに非推奨または変更されている可能性があります。`)}</p>
 								</div>
 							</div>
 						</div>

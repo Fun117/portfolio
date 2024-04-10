@@ -32,6 +32,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "../ui/button";
+import { _locales } from "./_locales";
 
 export function IsPC(): boolean {
     if (typeof window !== 'undefined') {
@@ -77,7 +78,7 @@ export function ContentSkillAboutDialog({ children, language, point, skillCommen
                     <DialogFooter className="sm:justify-start">
                         <DialogClose asChild>
                             <Button type="button" variant="outline">
-                                閉じる
+                                {_locales(`閉じる`)}
                             </Button>
                         </DialogClose>
                     </DialogFooter>

@@ -10,6 +10,7 @@ import { BiCodeAlt } from "react-icons/bi";
 import { FrameworkIcon } from "@/components/client/framework";
 import { portfolio_contents } from "@/components/_config";
 import { EncodeString } from "@/components/main";
+import { _locales } from "@/components/client/_locales";
 
 export interface __portfolio_contents {
     username: string;
@@ -52,7 +53,7 @@ export function GitHubClientGetRepository({ repositoryCount }: { repositoryCount
                 <ContentMenu key={index} MenuContent={
                     <ContextMenuItem>
                         <Link href={`https://twitter.com/intent/tweet?url=${repo.html_url}&text=${EncodeString(`${repo.name} | ${repo.username}`)}&hashtags=github`} target="_block">
-                            X(Twitter)にポスト
+                        {_locales(`X(Twitter)に投稿する`)}
                         </Link>
                     </ContextMenuItem>
                 }>
@@ -88,7 +89,7 @@ export function GitHubClientGetRepository({ repositoryCount }: { repositoryCount
             <ContentMenu key={index} MenuContent={
                 <ContextMenuItem>
                     <Link href={`https://twitter.com/intent/tweet?url=${repo.html_url}&text=${EncodeString(`${repo.name} | ${repo.owner.login}`)}&hashtags=github`} target="_block">
-                        X(Twitter)にポスト
+                    {_locales(`X(Twitter)に投稿する`)}
                     </Link>
                 </ContextMenuItem>
             }>

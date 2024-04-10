@@ -1,3 +1,4 @@
+import { _locales } from "./client/_locales";
 import { FooterConfig } from "./client/footer";
 import { HeaderConfig } from "./client/header";
 import { __portfolio_contents } from "./github/client/github";
@@ -37,12 +38,12 @@ export const headerConfig: HeaderConfig = {
     "title": "Fun117",
     "contents": [
         {
-            "label": "Home",
+            "label": _locales(`ホーム`),
             "url": "/",
             "target": "_self",
         },
         {
-            "label": "Portfolio",
+            "label": _locales(`ポートフォリオ`),
             "url": "/portfolio",
             "target": "_self",
         },
@@ -51,7 +52,7 @@ export const headerConfig: HeaderConfig = {
 
 export const footerConfig: FooterConfig[] = [
     {
-        "title": "Socials",
+        "title": _locales(`ソーシャル`),
         "contents": [
             {
                 "label": "ORCiD",
@@ -81,10 +82,10 @@ export const footerConfig: FooterConfig[] = [
         ],
     },
     {
-        "title": "Development",
+        "title": _locales(`開発`),
         "contents": [
             {
-                "label": "Repository",
+                "label": _locales(`リポジトリ`),
                 "url": "https://github.com/Fun117/portfolio",
                 "target": "_blank",
             },

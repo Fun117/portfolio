@@ -5,6 +5,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { MyZoon } from "./svg";
 import { NavigationConfig } from "../_config";
 import { ContentTooltip } from "./main";
+import { _locales } from "./_locales";
 
 const navigationConfig: NavigationConfig = require(`/src/components/_config`).navigationConfig;
 const footerConfig: FooterConfig[] = require(`/src/components/_config`).footerConfig;
@@ -77,7 +78,7 @@ export default function Footer() {
             </div>
             <div className="border-neutral-200 border-t flex items-center justify-center w-auto p-3 mx-[5%]">
                 <Link className="text-neutral-800 hover:text-neutral-600/70 transition-all duration-300 ease-in-out" href={`${navigationConfig.author?.socials.github}`} target="_block">
-                &copy; {navigationConfig.year} All Rights Reserved
+                &copy; {navigationConfig.year}{` `}{_locales(`無断複写・転載を禁じます。`)}
                 </Link>
             </div>
         </footer>
