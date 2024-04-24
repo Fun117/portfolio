@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const meta = {
 	title: 'Fun117',
-	description: "Fun117's Portfolio & Profile",
+	description: "This is Fun117's profile & portfolio! Fun117 is a Next.js enthusiast with a focus on web development. Fun117 is a web developer and Next.js enthusiast. Please check my profile for more details about my skills.",
 	authors: {
 		name: 'Fun117',
 		url: 'https://github.com/Fun117'
